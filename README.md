@@ -1,6 +1,6 @@
 # 📊 Power BI (PL-300) Learning & Practice Journey
 
-Welcome to my repository for the **Microsoft Power BI Data Analyst Certification (PL-300)**.journey  
+Welcome to my repository for the **Microsoft Power BI Data Analyst Certification (PL-300)** journey  
 This space documents my **daily progress, hands-on exercises, notes, best practices**, and **project work** as I master Power BI for real-world analytics and job-ready skills.
 
 ---
