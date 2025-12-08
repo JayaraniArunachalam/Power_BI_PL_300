@@ -93,3 +93,4 @@ Semantic model selection is a strategic decision impacting:
 ✔ Real-time needs  
 ✔ BI Scalability
 
+Connect with me on [LinkedIn](https://www.linkedin.com/in/jayarani-arunachalam-23jun1990/)
