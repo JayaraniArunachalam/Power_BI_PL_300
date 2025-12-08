@@ -61,7 +61,7 @@ This space documents my **daily progress, hands-on exercises, notes, best practi
 - Microsoft Learn 📚  
 - Official PL-300 Path  
 - Community Blogs & YouTube Tutorials  
-- Practice datasets from Kaggle, Makeover Monday, Microsoft Samples  
+- Practice datasets from Codebasics, Microsoft Samples  
 
 > I’ll list links soon under `/Resources/` folder.
 
@@ -70,7 +70,7 @@ This space documents my **daily progress, hands-on exercises, notes, best practi
 ## 🤝 Connect With Me
 
 Let’s discuss BI concepts, dashboards, and certification tips!  
-🌐 **LinkedIn**: (https://www.linkedin.com/in/jayarani-arunachalam-23jun1990/)
+🌐 [**LinkedIn**]: (https://www.linkedin.com/in/jayarani-arunachalam-23jun1990/)
 💼 **Open to opportunities in BI & Analytics**
 
 ---
