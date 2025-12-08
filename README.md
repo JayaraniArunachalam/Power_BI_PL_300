@@ -33,7 +33,7 @@ This space documents my **daily progress, hands-on exercises, notes, best practi
 
 | Day | Topic | Link |
 |-----|-------|------|
-| Day 01 | Semantic Model Modes (Import, DirectQuery, Composite, Hybrid) | 🔗 [View Notes](./Daily-Learning/Day01-Semantic-Model-Modes.md) |
+| Day 01 | Semantic Model Modes (Import, DirectQuery, Composite, Hybrid) | 🔗 [View Notes](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Topics/connectivity_modes.md) |
 | Day 02 | *(To be updated)* | 🔗 Coming Soon |
 
 > I update the index as I progress 👣
