@@ -1,5 +1,4 @@
 # Power BI Storage & Connectivity Modes
-# Power BI Semantic Model Modes
 
 Power BI offers multiple storage and semantic model configurations that impact performance, refresh strategy, and cost for enterprise BI workloads.
 
