@@ -1,26 +1,33 @@
 # Power BI Storage & Connectivity Modes
+# Power BI Semantic Model Modes
+
+Power BI offers multiple storage and semantic model configurations that impact performance, refresh strategy, and cost for enterprise BI workloads.
+
+---
 
 ## 1) Import Mode
-- Uses **VertiPaq (in-memory analytics engine)** to compress & store data.
-- Data is **cached**, so visuals load fast.
-- Ideal for **small–medium models**, periodic refresh.
-- **Supports:** Excel, CSV, SharePoint, SQL Server, APIs, flat files, cloud sources.
+- Most common mode; imports data into Power BI.
+- Stored on disk and loaded into memory when queried.
+- Powered by the **VertiPaq (in-memory columnar storage engine)**.
+- High compression (up to 10x), very fast query performance.
+- Full support for **Power Query (M)**, **DAX**, **Calculated tables + columns**, **Q&A**, and **Quick Insights**.
 
-### Pros
-- Fast performance
-- Good compression (10x–100x)
-- Full DAX capabilities
+### Advantages
+- Fast query performance.
+- Rich modeling flexibility.
+- Best for low-medium data volumes.
 
-### Cons
-- Memory usage increases
-- No real-time data
+### Limitations
+- Requires memory to load full dataset.
+- Data only as fresh as last refresh.
+- Full refresh can be costly (solved with Incremental Refresh).
 
 ---
 
 ## 2) DirectQuery Mode
-- Data remains in the **source system**.
-- Queries executed **live (near real-time)**.
-- Supports **query folding**, where Power BI pushes transformations back to the data source.
+- Data stays in the **source system**; only metadata is stored in Power BI.
+- Power BI sends **native queries** to the source at runtime.
+- Useful for **very large datasets** and **real-time dashboards**.
 
 ### Data Sources
 | Source | Supports DQ |
@@ -32,35 +39,58 @@
 | SAP HANA | ✔ |
 | BigQuery | ✔ |
 
-### Pros
-- Near real-time data
-- No heavy RAM usage
+### Advantages
+- No model size limits.
+- No scheduled refresh required.
+- Near real-time support (with auto page refresh).
 
-### Cons
-- Slower visuals
-- Limited DAX in large models
-- Performance depends on source
-
----
-
-## 3) Composite Model
-- Mixture of **Import + DirectQuery**.
-- Power BI **switches** storage mode depending on query behavior.
-- Best for hybrid business cases.
+### Limitations
+- Restricted M transformations and DAX capabilities.
+- No calculated tables.
+- Performance depends on the data source + query folding.
 
 ---
 
-## 4) Hybrid Model
-- Stores **historical data in Import** + **frequent data in DirectQuery**.
-- Typically used for enterprise warehouses & incremental refresh.
+## 3) Composite Models
+- Mix **Import + DirectQuery** in the same model.
+- Table-level storage modes: **Import**, **DirectQuery**, and **Dual**.
+- Dual mode allows Power BI to **choose either Import or DirectQuery based on query context**.
+
+### Typical Configuration
+| Table Type | Suggested Storage |
+|------------|------------------|
+| Dimensions | Import or Dual |
+| Facts | DirectQuery |
 
 ---
 
-### 📌 Key Takeaway
-| Mode | Speed | Data Freshness | Best Use |
-|------|-------|----------------|----------|
-| Import | 🔥 Fast | ❌ Scheduled | Small–Medium Stable Data |
-| DirectQuery | 🕒 Depends on DB | ✔ Real-Time | Large Models, Frequent Updates |
-| Composite | ⚖ Balanced | ⚖ Balanced | Large Mixed Models |
-| Hybrid | ⚡ Enterprise Optimized | ⚡ Optimized | Real-Time + Historical Storage |
+## 4) Hybrid Tables (Premium)
+- A specialized fact table using:
+  - **Import partitions** (historical data)
+  - **DirectQuery partition** (latest real-time data)
+- Created via **Incremental Refresh + Real-time (Premium)**.
+
+### When to Use
+- High-volume fact tables with frequent data changes.
+- Enterprise pipelines requiring real-time + historical reporting.
+
+---
+
+### Summary Comparison
+
+| Mode | Performance | Data Freshness | Flexibility | Best Use |
+|------|-------------|----------------|-------------|----------|
+| Import | ⭐⭐⭐⭐ | Scheduled | ⭐⭐⭐⭐ | Small/Medium Models |
+| DirectQuery | ⭐⭐ | Real-Time | ⭐ | Very Large Data |
+| Composite | ⭐⭐⭐ | Mixed | ⭐⭐⭐ | Enterprise Mix |
+| Hybrid | ⭐⭐⭐⭐ | Real-Time + Historical | ⭐⭐⭐ | Premium Enterprise |
+
+---
+
+### Key Takeaway
+Semantic model selection is a strategic decision impacting:
+✔ Performance  
+✔ Cost & Memory  
+✔ Real-time needs  
+✔ BI Scalability
 
