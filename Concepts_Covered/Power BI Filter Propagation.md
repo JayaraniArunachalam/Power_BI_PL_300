@@ -41,7 +41,9 @@ This repository demonstrates how **relationship design directly impacts aggregat
 ---
 
 ##  Business Scenario
-- 'Sales' table holds sales of an employee and their corresponding region
+- `Sales` table holds sales of an employee and their corresponding region
+- `Salesperson` table holds the data of emp key and their names
+- `Region` table holds data of the region (dim of region)
 - One **Salesperson** can be assigned to multiple **Regions**
 - One **Region** can have multiple **Salespersons**
 
@@ -49,11 +51,7 @@ This creates a **many-to-many relationship** between Salesperson and Region.
 
 To model this relationship explicitly and clearly, a **bridge table (SalespersonRegion)** is used.
 
-> While Power BI supports many-to-many relationships directly, an explicit bridge table makes filter propagation more predictable and easier to reason about.
-
----
-
-## 🔄 Relationship Design & Behavior
+##  Relationship Design & Behavior
 
 ### Case 1: No Direct Relationship Between Salesperson and Sales
 
@@ -61,10 +59,12 @@ To model this relationship explicitly and clearly, a **bridge table (Salesperson
 - Region → Sales (1:* on Region)
 - Salesperson → SalespersonRegion (1:* on EmpKey)
 - Region ↔ SalespersonRegion (bi-directional)
-- ❌ No direct relationship between Salesperson and Sales
+- No direct relationship between Salesperson and Sales
+![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/case%201%20filter%20propagation.jpg)
 
 #### Visual Used
 - Table visual: **Salesperson | Total Sales**
+- ![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/case1%20filterpropagation%20visual.jpg)
 
 #### Observed Result
 - Each salesperson shows the **total sales of all regions assigned to them**
@@ -73,3 +73,47 @@ To model this relationship explicitly and clearly, a **bridge table (Salesperson
 #### Explanation
 Filters propagate through the following path:
 
+Salesperson → SalespersonRegion → Region → Sales
+
+As a result, aggregation happens at the **region level**, not the employee level.
+
+---
+
+### Case 2: Added a Direct Relationship
+
+#### Additional Relationship
+- Salesperson → Sales (1:* on EmpKey)
+![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/case%202%20filter%20propagation.jpg)
+
+#### Observed Result
+- Each salesperson now shows **only their own sales**
+![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/case2%20filterpropagation%20visual.jpg)
+
+#### Explanation
+Power BI prefers the **shortest and least ambiguous filter path**:
+
+
+This enables filtering and aggregation at the **employee granularity**.
+
+---
+
+## Key Learnings
+
+- Power BI always prefers the **most direct filter path**
+- Bi-directional filters can significantly affect result granularity
+- Many-to-many relationships must be modeled carefully
+- Explicit bridge tables improve clarity and model reliability
+- Relationship design is just as important as DAX
+
+---
+
+## Why This Matters
+
+Understanding filter propagation is critical for:
+- Accurate reporting
+- Avoiding hidden aggregation bugs
+- Building reliable Power BI models
+- PL-300 certification preparation
+- Real-world BI projects
+
+---
