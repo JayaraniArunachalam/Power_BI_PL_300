@@ -19,10 +19,11 @@ This space documents my **daily progress, hands-on exercises, notes, best practi
 
 | Folder / File | Description |
 |---------------|-------------|
-| `/Concepts-Covered/` | Everyday topic-wise notes (`Day 1, Day 2…`) |
+| `/Concepts-Covered/` | Everyday topic-wise notes  |
 | `/Projects/` | Practice dashboards & case studies |
 | `/Resources/` | Useful links, data sources, cheat sheets |
 | `/Practice-DAX/` | DAX formulas with examples |
+| `/Diagrams/` | screenshots of visuals, models etc|
 | `README.md` | Overview + Index of learning topics |
 
 ---
