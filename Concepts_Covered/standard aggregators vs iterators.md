@@ -55,3 +55,20 @@ SUMX(
     Sales,
     Sales[Price] * (1 - Sales[Discount %])
 )
+```
+
+### Explanation
+- SUMX iterates over the Sales table.
+- Evaluates the expression for each row.
+- Aggregates the evaluated results.
+- No calculated column required.
+- Fully dynamic and filter-responsive.
+
+### Key Differences
+
+| Normal Aggregation                    | Iterator Function                  |
+| ------------------------------------- | ---------------------------------- |
+| Aggregates a column                   | Iterates over a table              |
+| No row context in measure             | Creates row context                |
+| Faster and optimized                  | Slightly heavier on large datasets |
+| Needs calculated column for row logic | Handles row-level logic directly   |
