@@ -47,6 +47,8 @@ Calculate **Total Sales after applying discount per row**.
 - No row-by-row evaluation occurs inside the measure.
 - Increases model size due to additional stored column.
 
+---
+
 ## 🔹 Approach 2 – Using Iterator Function (SUMX)
 ``` TotalSales =
 SUMX(
