@@ -77,5 +77,5 @@ Let’s discuss BI concepts, dashboards, and certification tips!
 
 ---
 
-### *Learning every day. Building skills that matter. Power BI *
+###  Learning every day. Building skills that matter. Power BI 
 
