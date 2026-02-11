@@ -64,6 +64,9 @@ SUMX(
 - No calculated column required.
 - Fully dynamic and filter-responsive.
 
+![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/normal%20vs%20iterator%20function%20in%20pbi.jpg)
+
+
 ### Key Differences
 
 | Normal Aggregation                    | Iterator Function                  |
@@ -72,7 +75,7 @@ SUMX(
 | No row context in measure             | Creates row context                |
 | Faster and optimized                  | Slightly heavier on large datasets |
 | Needs calculated column for row logic | Handles row-level logic directly   |
-![](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Diagrams/normal%20vs%20iterator%20function%20in%20pbi.jpg)
+
 
 ### When to Use What?
 #### Use Normal Functions When:
