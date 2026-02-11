@@ -1,0 +1,55 @@
+# Normal Aggregation vs Iterator Functions in DAX  
+### Understanding SUM vs SUMX with a Practical Example
+
+This document explains the fundamental difference between **normal aggregation functions** and **iterator (X) functions** in DAX, using `SUM` and `SUMX` as examples.
+
+Understanding this distinction is essential for writing accurate and efficient Power BI measures.
+
+---
+
+## 📌 Why This Matters
+
+In DAX, aggregation can happen in two ways:
+
+1. **Normal Aggregation Functions** (e.g., SUM, AVERAGE)
+2. **Iterator Functions** (e.g., SUMX, AVERAGEX)
+
+The difference becomes critical when calculations involve **row-level business logic**, such as percentage discounts or multi-column arithmetic.
+
+---
+
+## 🔹 Example Scenario
+
+### Sales Table
+
+| Price | Discount % |
+|-------|------------|
+| 150   | 15%        |
+| 180   | 18%        |
+
+### Goal  
+Calculate **Total Sales after applying discount per row**.
+
+---
+
+## 🔹 Approach 1 – Using Normal Aggregation (SUM)
+
+### Step 1: Create a Calculated Column
+
+``` NetPrice = Sales[Price] * (1 - Sales[Discount %]) ```
+
+### Step 2: Aggregate the column
+``` TotalSales = SUM(Sales[NetPrice]) ```
+
+### Explanation
+- Row-level calculation happens in the calculated column.
+- SUM aggregates an existing column.
+- No row-by-row evaluation occurs inside the measure.
+- Increases model size due to additional stored column.
+
+## 🔹 Approach 2 – Using Iterator Function (SUMX)
+``` TotalSales =
+SUMX(
+    Sales,
+    Sales[Price] * (1 - Sales[Discount %])
+)
