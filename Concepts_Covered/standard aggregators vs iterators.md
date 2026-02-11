@@ -72,3 +72,22 @@ SUMX(
 | No row context in measure             | Creates row context                |
 | Faster and optimized                  | Slightly heavier on large datasets |
 | Needs calculated column for row logic | Handles row-level logic directly   |
+
+
+### When to Use What?
+#### Use Normal Functions When:
+- Aggregating a single existing column
+- No row-level expression is required
+- Maximum performance is needed
+
+#### Use Iterator Functions When:
+- Calculation depends on multiple columns
+- Row-by-row logic is required
+- Iterating over a virtual table (FILTER, VALUES, SUMMARIZE)
+- You want to avoid creating additional calculated columns
+
+### Core Insight
+- Normal functions aggregate columns.
+- Iterator functions aggregate calculated row-level results.
+
+Understanding this difference is fundamental to writing correct and scalable DAX.
