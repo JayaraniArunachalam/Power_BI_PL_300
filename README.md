@@ -36,7 +36,7 @@ This space documents my **daily progress, hands-on exercises, notes, best practi
 |-----|-------|------|
 | Day 01 | Semantic Model Modes (Import, DirectQuery, Composite, Hybrid) | 🔗 [View Notes](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Concepts_Covered/connectivity_modes.md) |
 | Day 02 | Filter Propagation | 🔗 [View Notes](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Concepts_Covered/Power%20BI%20Filter%20Propagation.md) |
-| Day 03 | Standard Aggregators vs Iterators | 🔗 [View Notes](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Concepts_Covered/Power%20BI%20Filter%20Propagation.md) |
+| Day 03 | Standard Aggregators vs Iterators | 🔗 [View Notes](https://github.com/JayaraniArunachalam/Power_BI_PL_300/blob/main/Concepts_Covered/standard%20aggregators%20vs%20iterators.md) |
 
 > I update the index as I progress 👣
 
